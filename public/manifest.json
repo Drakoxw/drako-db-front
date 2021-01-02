@@ -1,0 +1,29 @@
+{
+  "short_name": "Drako DB",
+  "name": "Data Base/ Web App",
+  "description": "Proyecto con MEAN",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "purpose": "any maskable",
+      "type": "image/png"
+    },
+    {
+      "src": "dragon192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "dragon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./?utm_source=web_app_manifest",
+  "lang": "es-CO",
+  "orientation": "portrait",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

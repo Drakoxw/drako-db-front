@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
+import Tabla from '../components/tablas/tablaReservas';
 
 let Rtoken = 'xxx';
+let operador = 'promAd'
 
 class Reservas extends Component {
   constructor(props) {
@@ -21,7 +23,8 @@ class Reservas extends Component {
     const {titulo} = this.props;
     return (
       <div>
-        <Header titulo={titulo}/>
+        <Header operador={operador} titulo={titulo}/>
+        <Tabla operador={operador} />
       </div>
     )
   }

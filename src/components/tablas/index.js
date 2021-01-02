@@ -6,9 +6,9 @@ import './Tabla.css';
 
 
 function Tabla({
-  num,
+  num = '',
   operador,
-  value,
+  value = '',
   entidades= [],
   editarEntidad=() => {},
   crearReserva=() => {},
@@ -16,8 +16,6 @@ function Tabla({
 }) {
   let hoy = new Date().getDate();
   let mes = (new Date().getMonth()+1);
-  //let año = new Date().getFullYear();
-  //let diaM = DiaD(hoy, mes, año)
 
   console.log('entidades:',entidades,'operador:', operador);
   console.log(`value`, value);

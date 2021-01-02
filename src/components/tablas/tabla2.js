@@ -1,6 +1,6 @@
 import React from 'react';
 import Encabezado from './encabezado';
-import Fila from './filas2';
+import Fila from './fila2';
 import './Tabla.css';
 
 

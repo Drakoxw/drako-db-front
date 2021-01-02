@@ -1,7 +1,7 @@
 import React from 'react';
 import './Filtro.css';
 
-function Filtro({ value = '', num,
+function Filtro({ value , num,
   valueAdmin=()=>{},
   valueNum=()=>{} }) {
   if (value === '' || value === 'Todos') {

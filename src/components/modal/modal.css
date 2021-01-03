@@ -26,7 +26,6 @@
 .modal-header {
   display: -ms-flexbox;
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
   padding: 1rem 1rem;
   border-bottom: 1px solid #dee2e6;
@@ -34,16 +33,14 @@
   border-top-right-radius: .3rem;
 }
 .modal-title {
-  margin-bottom: 0;
+  margin: 1rem auto;
   line-height: 1.5;
 }
 .h5, h5 {
+  text-align: center;
   font-size: 1.25rem;
 }
-.modal-header .close {
-  padding: 1rem 1rem;
-  margin: -1rem -1rem -1rem auto;
-}
+
 [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
   cursor: pointer;
 }
@@ -87,7 +84,7 @@ button.close {
 }
 .form-control {
   display: block;
-  width: 100%;
+  width: 95%;
   height: calc(1.5em + .75rem + 2px);
   padding: .375rem .75rem;
   font-size: 1rem;
@@ -153,4 +150,8 @@ label {
 .cumple-content {
   box-sizing: border-box;
   display: flex;
+}
+.est-reserva, .est-contacto, .sexo {
+  width: 100%;
+  height: 3rem;
 }

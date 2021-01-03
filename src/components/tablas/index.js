@@ -17,8 +17,8 @@ function Tabla({
   let hoy = new Date().getDate();
   let mes = (new Date().getMonth()+1);
 
-  console.log('entidades:',entidades,'operador:', operador);
-  console.log(`value`, value);
+  //console.log('entidades:',entidades,'operador:', operador);
+  //console.log(`value`, value);
 
   switch (value) {
     case 'Masculino':

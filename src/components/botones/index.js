@@ -9,7 +9,7 @@ function Boton({objeto, id, persona, onClick, tipo}) {
       "btn-info": tipo=== "editar",
       "btn-danger": tipo=== "eliminar",
       "btn-buscar": tipo=== "buscar",
-      "btn-buscar": tipo=== "crear"
+      "btn-crear": tipo=== "crear"
     })}
     data-id={id}
     onClick={(ev)=> onClick( objeto, id, persona, ev)}>

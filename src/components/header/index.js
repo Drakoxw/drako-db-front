@@ -18,11 +18,10 @@ function Header({titulo, operador,
             <img className="img-drak" alt="Drako db logo" src={dragon} ></img>
           </div>
           <div className="conten3">
-            <h2>{titulo.titulo}</h2>
-            { operador === 'prom'   && <Filtro value={value} num={num} valueAdmin={valueAdmin} valueNum={valueNum}
-            />}
-            { operador === 'admin' && <Filtro2 value={value} valueAdmin={valueAdmin} valueNum={valueNum} /> }
+            <h2>{titulo}</h2>
             <button className="btn-cerrar" type="submit" onClick={cerrar}>cerrar sesión</button>
+            { operador === 'prom'   && <Filtro value={value} num={num} valueAdmin={valueAdmin} valueNum={valueNum}/>}
+            { operador === 'admin' && <Filtro2 value={value} valueAdmin={valueAdmin} valueNum={valueNum} /> }
           </div>
         </div>
     </header>

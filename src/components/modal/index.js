@@ -1,6 +1,6 @@
 import React from 'react';
-import HeaderModal from './headerModal';
-import FooterModal from './footerModal';
+import HeaderModal from './modalHeader';
+import FooterModal from './modalFooter';
 
 import './modal.css';
 
@@ -25,7 +25,7 @@ function Modal({
                   <input type="text" className="form-control" id="nombre" name="Nombre" placeholder="Nombre Cliente" required onInput={manejarInput} value={objeto.Nombre}/>
 
                   <label htmlFor="telefono">Telefono</label>
-                  <input type="tel" className="form-control" id="telefono" name="Whastapp" placeholder="Contacto del cliente" required onInput={manejarInput} value={objeto.Whastapp} />
+                  <input type="tel" className="form-control" id="telefono" name="Telefono" placeholder="Contacto del cliente" required onInput={manejarInput} value={objeto.Telefono} />
 
                   <div className="form-group-m">
                     <label htmlFor="sexo">Sexo</label>
@@ -46,9 +46,9 @@ function Modal({
                     </div>
                   </div>
                   
-              
                   <label htmlFor="discoteca">Discoteca</label>
                   <input type="text" className="form-control" id="discoteca" name="Discoteca" placeholder="Discoteca donde se tomo el cliente" required onInput={manejarInput} value={objeto.Discoteca}/>
+
                   <label htmlFor="correo">Correo</label>
                   <input type="text" className="form-control" name="Correo"id="correo" placeholder="Email" required onInput={manejarInput} value={objeto.Correo} />
                 
@@ -61,7 +61,6 @@ function Modal({
       )
     } 
     if (operador === 'promAd') {
-    console.log(operador);
       return (
         <div className="modal fade" id="exampleModal"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
@@ -74,7 +73,7 @@ function Modal({
                 <input type="text" className="form-control" id="nombre" name="NombreContacto" placeholder="Cliente" required onInput={manejarInput} value={objeto.NombreContacto}/>
 
                 <label htmlFor="telefono">Telefono</label>
-                <input type="tel" className="form-control" id="telefono" name="Whastapp" placeholder="Contacto del cliente" required onInput={manejarInput} value={objeto.Whastapp} />
+                <input type="tel" className="form-control" id="telefono" name="Telefono" placeholder="Contacto del cliente" required onInput={manejarInput} value={objeto.Telefono} />
                 
                 <label htmlFor="fecha">Fecha de la Reserva</label>
                 <input type="text" className="form-control" id="fecha" name="FechaReserva" placeholder="Fecha de la Reserva" required onInput={manejarInput} value={objeto.FechaReserva}/>
@@ -135,7 +134,7 @@ function Modal({
                   <input type="text" className="form-control" id="nombre" name="Nombre" placeholder="Nombre Cliente" required onInput={manejarInput} 
                   value={objeto.Nombre}/>
                   <label htmlFor="telefono">Telefono</label>
-                  <input type="tel" className="form-control" id="telefono" name="Whastapp" placeholder="Contacto del cliente" required onInput={manejarInput} value={objeto.Whastapp} />
+                  <input type="tel" className="form-control" id="telefono" name="Telefono" placeholder="Contacto del cliente" required onInput={manejarInput} value={objeto.Telefono} />
                   <div className="form-group-m">
                     <label htmlFor="sexo">Sexo</label>
                     <select className="form-control sexo" name="Sexo" id="sexo" required onChange={manejarInput} value={objeto.Sexo}>
@@ -190,7 +189,6 @@ function Modal({
       </div>  
       )
     }
-  
 }
 
 export default Modal;

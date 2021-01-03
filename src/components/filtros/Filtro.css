@@ -1,4 +1,7 @@
 #filtroComp {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
   background-color: #e42525;
   max-width: min-content;
   margin: 1rem auto;

@@ -3,6 +3,8 @@
   justify-content: flex-start;
 }
 .btn {
+  padding: .4rem;
+  border-radius: 4px;
   color: white;
 }
 .btn-info {
@@ -16,11 +18,12 @@
   border: yellow solid 4px;
   background-color: red;
 }
-.btn-buscar {
+.btn-buscar, .btn-primary, .btn-crear  {
   background-color: #007bff;
   border-color: #007bff;
 }
-.btn-nuevo {
+.btn-nuevo{
+  margin: 1rem 0px .5rem 1rem;
   background-color: #007bff;
   border-color: #007bff;
 }

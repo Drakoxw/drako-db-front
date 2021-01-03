@@ -68,21 +68,29 @@ a:hover {
   height: 280px;
 }
 .btn-cerrar {
+  min-width: 248px;
   border-radius: 4px;
   height: fit-content;
   font-family: cursive;
-  margin-top: 171px;
+  margin-top: 15px;
   color: white;
   padding: 10px;
   background-color: #73c75e;
+}
+.btn-cerrar:hover {
+  font-size: large;
+  border-color: #126b0d;
+  color: #126b0d;
 }
 .x-r {
   margin-right: 3rem;
 }
 .conten3 {
-  display: grid;
-  width: 100%;
-  justify-content: center;
+  align-content: start;
+    display: grid;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
 }
 
 @media (max-width: 680px) {

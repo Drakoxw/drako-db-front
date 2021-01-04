@@ -62,7 +62,7 @@ class Reservas extends Component {
         <Header operador={operador} titulo={titulo}/>
         <div className="conten4">
 
-          <Tabla operador={operador} />
+          <Tabla operador={operador} entidades={this.state.reservas}/>
         
           { this.state.mostrarModal && <Modal 
             headerModalText={this.state.headerModalText}

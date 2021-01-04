@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Header from '../components/header';
 import Tabla from '../components/tablas/tablaReservas';
 import Modal from '../components/modal';
-import { getReservas, putReservas } from '../services/serviceReservas';
+import { getReservas, putReservas, deleteReservas } from '../services/serviceReservas';
 
 let Rtoken = 'xxx';
 let operad = localStorage.getItem('role')
@@ -15,7 +15,6 @@ class Reservas extends Component {
       mostrarModal: false,
       objeto: {},
       reservas: [],
-      method: 'POST',
       headerModalText: 'Editar reserva',
       value: '',
       idObjeto: ''
@@ -28,16 +27,29 @@ class Reservas extends Component {
 
   listar = async() => {
     const entidades = await getReservas()
-    console.log(entidades);
     this.setState({ reservas: entidades})
   }
 
+  modelarReserva = async( _objeto, id ) => {
+    this.setState({ objeto: _objeto, idObjeto: id })
+    this.cambiarModal()
+  }
+
   editarReser = async() => {
-    let { objeto, idObjeto} = this.state
-    await putReservas(idObjeto, objeto,'PUT')
+    const { objeto, idObjeto } = this.state;
+    await putReservas(idObjeto, objeto, 'PUT')
     this.cambiarModal()
     this.listar()
   }
+  elimReserva = async(_objeto, id, persona) => {
+    const ok = await prompt(`Desea eliminar reserva de ${persona} ? \n Escriba "Y" para confirmar`)
+    if (ok && ok.toLowerCase() === 'y') {
+      deleteReservas(id).then((x) => this.listar())
+    } else {
+      console.log('proceso interumpido');
+    }
+  }
+
   manejarInput = (ev) => {
     const { target: {value, name} } = ev;
     let {objeto} = this.state;
@@ -62,12 +74,18 @@ class Reservas extends Component {
         <Header operador={operador} titulo={titulo}/>
         <div className="conten4">
 
-          <Tabla operador={operador} entidades={this.state.reservas}/>
+          <Tabla operador={operador} 
+            entidades={this.state.reservas}
+            eliminarEntidad={this.elimReserva}
+            editarEntidad={this.modelarReserva}
+          />
         
           { this.state.mostrarModal && <Modal 
+            objeto={this.state.objeto}
+            crearEntidad={this.editarReser}
             headerModalText={this.state.headerModalText}
-            cambiarModal={this.state.cambiarModal}
-            manejarInput={this.state.manejarInput}
+            cambiarModal={this.cambiarModal}
+            manejarInput={this.manejarInput}
             operador={operador}
           />}
         </div>

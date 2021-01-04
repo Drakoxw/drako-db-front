@@ -21,8 +21,19 @@ function FilaR({ index,cliente,
       <th key={`${keys[8]}=>${index+1}`}>{cliente.Observaciones}</th>
       <th key={`${keys[9]}=>${index+1}`}>
       <div className="btn-group" aria-label="Basic Example">
-        <Boton tipo="editar" onClick={editarEntidad}  id={cliente.id} />
-        <Boton tipo="eliminar" onClick={eliminarEntidad} persona={cliente.NombreContacto} id={cliente.id} />
+        <Boton tipo="editar" onClick={editarEntidad}  id={cliente._id} objeto={
+          { Contacto :cliente.Contacto,
+            Telefono: cliente.Telefono,
+            FechaReserva: cliente.FechaReserva,
+            Discoteca: cliente.Discoteca,
+            EstReserva: cliente.EstReserva,
+            MotReserva: cliente.MotReserva,
+            TipoReserva: cliente.TipoReserva,
+            Cumpleañero: cliente.Cumpleañero,
+            Observaciones: cliente.Observaciones
+          }
+        }/>
+        <Boton tipo="eliminar" onClick={eliminarEntidad} persona={cliente.Contacto} id={cliente._id} />
       </div>
       </th>
     </tr>

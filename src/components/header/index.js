@@ -11,7 +11,6 @@ function Header({titulo, operador,
   valueAdmin=()=>{},
   valueNum=()=>{}
 }) {
-  console.log(`operador`, operador);
   return (
     <header>
       <div className="nav-body" >

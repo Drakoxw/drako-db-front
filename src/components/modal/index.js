@@ -70,20 +70,20 @@ function Modal({
               <div className="form-group-m">
 
                 <label htmlFor="nombre">Contacto</label>
-                <input type="text" className="form-control" id="nombre" name="NombreContacto" placeholder="Cliente" required onInput={manejarInput} value={objeto.NombreContacto}/>
+                <input type="text" className="form-control" id="nombre" name="Contacto" placeholder="Cliente" required onInput={manejarInput} value={objeto.Contacto}/>
 
                 <label htmlFor="telefono">Telefono</label>
                 <input type="tel" className="form-control" id="telefono" name="Telefono" placeholder="Contacto del cliente" required onInput={manejarInput} value={objeto.Telefono} />
                 
                 <label htmlFor="fecha">Fecha de la Reserva</label>
-                <input type="text" className="form-control" id="fecha" name="FechaReserva" placeholder="Fecha de la Reserva" required onInput={manejarInput} value={objeto.FechaReserva}/>
+                <input type="text" className="form-control" id="fecha" name="FechaReserva" placeholder="Ingresar el dia y la fecha de reserva" required onInput={manejarInput} value={objeto.FechaReserva}/>
 
                 <label htmlFor="discoteca">Discoteca</label>
                 <input type="text" className="form-control" id="discoteca" name="Discoteca" placeholder="Discoteca donde se tomo el cliente" required onInput={manejarInput} value={objeto.Discoteca}/>
 
                 <div className="form-group-m">
                   <label htmlFor="estado">Estado de la Reserva</label>
-                  <select className="form-control estado" name="EstadoReserva" id="estado" required onChange={manejarInput} value={objeto.EstadoReserva}>
+                  <select className="form-control estado" name="EstReserva" id="estado" required onChange={manejarInput} value={objeto.EstReserva}>
                     <option hidden >Confirmación de la Reserva</option>
                     <option>Confirmada</option>
                     <option>Por confirmar</option>
@@ -93,7 +93,7 @@ function Modal({
 
                 <div className="form-group-m">
                   <label htmlFor="motivo">Motivo de la Reserva</label>
-                    <select className="form-control motivo" name="MotivoReserva" id="motivo" required onChange={manejarInput} value={objeto.MotivoReserva}>
+                    <select className="form-control motivo" name="MotReserva" id="motivo" required onChange={manejarInput} value={objeto.MotReserva}>
                       <option hidden >Motivo de la Reserva</option>
                       <option>Cumpleaños</option>
                       <option>Otro</option>
@@ -110,7 +110,7 @@ function Modal({
                 </div>
 
                 <label htmlFor="cumpleañero">Cumpleañero</label>
-                <input type="text" className="form-control" name="NombreCumpleañero"id="cumpleañero" placeholder="Nombre del Cumpleañero" onInput={manejarInput} value={objeto.NombreCumpleañero} />
+                <input type="text" className="form-control" name="Cumpleañero"id="cumpleañero" placeholder="Nombre del Cumpleañero" onInput={manejarInput} value={objeto.Cumpleañero} />
 
                 <label htmlFor="observaciones">Observaciones</label>
                 <input type="text" className="form-control" name="Observaciones"id="observaciones" placeholder="Recomendaciones/Peticiones del Cliente" required onInput={manejarInput} value={objeto.Observaciones} />

@@ -50,7 +50,7 @@ class Depurar extends Component {
     this.listar()
   }
   eliminarEntidad = async(_ev, id, persona ) => {
-    const ok = await prompt(`Desea eliminar a ${persona}? \n Escriba "Y" para confirmar`)
+    const ok = await prompt(`Desea eliminar a ${persona} ? \n Escriba "Y" para confirmar`)
     if (ok && ok.toLowerCase() === 'y') {
       deleteCliente(id).then((x) => this.listar())
     } else {

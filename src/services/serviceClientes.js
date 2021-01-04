@@ -10,7 +10,6 @@ export const getClientes = async () => {
       }
     })
     const datos = await resp.json()
-    console.log(datos);
     return datos
   } catch (err) {
     console.log(`err`, err);

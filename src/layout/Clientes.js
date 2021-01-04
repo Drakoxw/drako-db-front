@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from '../components/header';
 import Tabla from '../components/tablas';
 import { getClientes, putCliente } from '../services/serviceClientes';
+import { putReservas } from '../services/serviceReservas'
 import Modal from '../components/modal';
 import BotonAction from '../components/botones/botonAction';
 
@@ -52,6 +53,11 @@ class Clientes extends Component {
     this.listar()
   }
 
+  crearReserva = async(objeto) => {
+    alert(`Se ha creado una nueva reserva para: ${objeto.Contacto}`)
+    await putReservas('x' ,objeto)
+  }
+
   manejarInput = (ev) => {
     const { target: {value, name} } = ev;
     let {objeto} = this.state;
@@ -99,6 +105,7 @@ class Clientes extends Component {
             value={this.state.value}
             num={this.state.num}
             operador={operador} 
+            crearReserva={this.crearReserva}
             entidades={entidades}
             editarEntidad={this.editarEntidad}
           />

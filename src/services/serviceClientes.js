@@ -19,7 +19,6 @@ export const getClientes = async () => {
 
 export const putCliente = async(id, cliente, method='POST') => {
   let url;
-  console.log(cliente);
   try {
     if (method ==='POST') {
       url = API_ULR

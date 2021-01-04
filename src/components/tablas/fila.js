@@ -22,10 +22,10 @@ function Fila({ index,cliente,
       <div className="btn-group" aria-label="Basic Example">
         <Boton tipo="editar" onClick={editarEntidad} id={cliente._id} />
         <Boton tipo="crear" onClick={crearReserva} objeto={
-          {id_cliente: cliente._id,
-          NombreContacto: cliente.Nombre,
-          Whastapp: cliente.Telefono,
-          EstadoReserva: cliente.EstadoReserva,
+          {idContacto: cliente._id,
+          Contacto: cliente.Nombre,
+          Telefono: cliente.Telefono,
+          EstReserva: cliente.EstadoReserva,
           Discoteca: cliente.Discoteca}
         }/>
       </div>

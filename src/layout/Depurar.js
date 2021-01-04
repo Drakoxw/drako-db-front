@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
 import Tabla from '../components/tablas/tablaDep';
-import { getClientes, putCliente } from '../services/serviceClientes';
+import { getClientes, putCliente, deleteCliente } from '../services/serviceClientes';
 import Modal from '../components/modal';
 
-
-
 let Rtoken = 'xxx';
-let operador = 'admin'
+let operador = localStorage.getItem('role');
 
 class Depurar extends Component {
   constructor(props) {
@@ -51,6 +49,14 @@ class Depurar extends Component {
     this.cambiarModal()
     this.listar()
   }
+  eliminarEntidad = async(_ev, id, persona ) => {
+    const ok = await prompt(`Desea eliminar a ${persona}? \n Escriba "Y" para confirmar`)
+    if (ok && ok.toLowerCase() === 'y') {
+      deleteCliente(id).then((x) => this.listar())
+    } else {
+      console.log('proceso interumpido');
+    }
+  }
 
   manejarInput = (ev) => {
     const { target: {value, name} } = ev;
@@ -91,23 +97,26 @@ class Depurar extends Component {
           value={this.state.value}
         />
 
-        <Tabla 
-          value={this.state.value}
-          num={this.state.num}
-          operador={operador} 
-          entidades={entidades}
-          editarEntidad={this.editarEntidad}
-        />
-
-        { this.state.mostrarModal && <Modal 
-          objeto={this.state.objeto}
-          headerModalText={this.state.headerModalText}
-          crearEntidad={this.crearEditarEnt}
-          operador={operador}
-          cambiarModal={this.cambiarModal}
-          manejarInput={this.manejarInput}
-        />}
+        <div className="conten4">
+          <Tabla 
+            value={this.state.value}
+            num={this.state.num}
+            operador={operador} 
+            entidades={entidades}
+            editarEntidad={this.editarEntidad}
+            eliminarEntidad={this.eliminarEntidad}
+          />
+  
+          { this.state.mostrarModal && <Modal 
+            objeto={this.state.objeto}
+            headerModalText={this.state.headerModalText}
+            crearEntidad={this.crearEditarEnt}
+            operador={operador}
+            cambiarModal={this.cambiarModal}
+            manejarInput={this.manejarInput}
+          />}
         
+        </div>
       </div>
     )
   }

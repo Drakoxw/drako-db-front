@@ -1,5 +1,6 @@
 const API_ULR = 'http://localhost:9090/api'
 
+
 export const login = async (user, pass) => {
   try {
     const resp = await fetch(`${API_ULR}/login`, {
@@ -13,15 +14,28 @@ export const login = async (user, pass) => {
     })
     const token = await resp.json();
     await localStorage.setItem('token', token.token)
-    return token
+    if (token.token) {
+      const datUser = await fetch(`${API_ULR}/me`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: token.token,
+        },
+      })
+      const datoUser = await datUser.json();
+      await localStorage.setItem('user', datoUser.Email);
+      await localStorage.setItem('role', datoUser.Role);
+    }
+    return 
   } catch (err) {
     console.log(`error :`, err);
   }
 }
 
-export const cerrar = (ev) => {
-  console.log(`cerrando`);
-  localStorage.setItem('token', 'xxx')
+export const cerrar = (_ev) => {
+  localStorage.setItem('token', 'xxx');
+  localStorage.setItem('user', 'xx');
+  localStorage.setItem('role', 'x');
   window.location.href="/"
 
 } 

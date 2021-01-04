@@ -7,7 +7,7 @@ import BotonAction from '../components/botones/botonAction';
 
 
 let Rtoken = 'xxx';
-let operador = 'prom'
+let operador = localStorage.getItem('role')
 
 class Clientes extends Component {
   constructor(props) {
@@ -90,27 +90,30 @@ class Clientes extends Component {
           valueNum={this.manejarNum}
           value={this.state.value}
         />
-        <BotonAction 
-          cambiarModal={this.cambiarModal} 
-        />
+        <div className="conten4">
+          <BotonAction 
+            cambiarModal={this.cambiarModal} 
+          />
 
-        <Tabla 
-          value={this.state.value}
-          num={this.state.num}
-          operador={operador} 
-          entidades={entidades}
-          editarEntidad={this.editarEntidad}
-        />
+          <Tabla 
+            value={this.state.value}
+            num={this.state.num}
+            operador={operador} 
+            entidades={entidades}
+            editarEntidad={this.editarEntidad}
+          />
 
+          { this.state.mostrarModal && <Modal 
+            objeto={this.state.objeto}
+            headerModalText={this.state.headerModalText}
+            crearEntidad={this.crearEditarEnt}
+            operador={operador}
+            cambiarModal={this.cambiarModal}
+            manejarInput={this.manejarInput}
+          />}
 
-        { this.state.mostrarModal && <Modal 
-          objeto={this.state.objeto}
-          headerModalText={this.state.headerModalText}
-          crearEntidad={this.crearEditarEnt}
-          operador={operador}
-          cambiarModal={this.cambiarModal}
-          manejarInput={this.manejarInput}
-        />}
+        </div>
+        
       </div>
     )
   }

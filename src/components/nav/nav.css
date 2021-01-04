@@ -57,15 +57,17 @@ a:hover {
   color: black;
 }
 .nav-body {
+  border-bottom: cadetblue 1.5rem solid;
   display: flex;
 }
 .conten2 {
   justify-content: center;
 }
 .conten2 img {
+  margin: 50px 0 2rem 6vw;
   margin-top: 50px;
-  width: 280px;
-  height: 280px;
+  width: 255px;
+  height: 255px;
 }
 .btn-cerrar {
   min-width: 248px;
@@ -76,6 +78,7 @@ a:hover {
   color: white;
   padding: 10px;
   background-color: #73c75e;
+  margin-bottom: 1rem;
 }
 .btn-cerrar:hover {
   font-size: large;
@@ -86,11 +89,16 @@ a:hover {
   margin-right: 3rem;
 }
 .conten3 {
-  align-content: start;
-    display: grid;
-    width: 100%;
-    justify-content: center;
-    justify-items: center;
+  align-content: center;
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  justify-items: center;
+}
+.conten4 {
+  background-color: white;
+  margin: auto;
+  height: 100%;
 }
 
 @media (max-width: 680px) {

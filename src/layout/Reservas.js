@@ -3,7 +3,8 @@ import Header from '../components/header';
 import Tabla from '../components/tablas/tablaReservas';
 
 let Rtoken = 'xxx';
-let operador = 'promAd'
+let operad = localStorage.getItem('role')
+let operador = `${operad}Ad`
 
 class Reservas extends Component {
   constructor(props) {
@@ -21,10 +22,15 @@ class Reservas extends Component {
 
   render() {
     const {titulo} = this.props;
+
     return (
       <div>
         <Header operador={operador} titulo={titulo}/>
-        <Tabla operador={operador} />
+        <div className="conten4">
+
+          <Tabla operador={operador} />
+        
+        </div>
       </div>
     )
   }

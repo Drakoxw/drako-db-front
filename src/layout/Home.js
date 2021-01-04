@@ -78,21 +78,27 @@ class Home extends Component {
     return (
       <div>
         <Header operador={operador} titulo={titulo} />
-        <BotonAction cambiarModal={this.cambiarModal} />
-        <Tabla 
-          entidades={entidades}
-          num={this.state.num}
-          value={this.state.value}
-          editarEntidad={this.editarEntidad}
-          operador={this.state.operador}/>
 
-        { this.state.mostrarModal && <Modal 
-          objeto={this.state.objeto}
-          headerModalText={this.state.headerModalText}
-          crearEntidad={this.crearEditarEnt}
-          operador={operador}
-          cambiarModal={this.cambiarModal}
-          manejarInput={this.manejarInput}/> }
+        <div className="conten4">
+
+          <BotonAction cambiarModal={this.cambiarModal} />
+          <Tabla 
+            entidades={entidades}
+            num={this.state.num}
+            value={this.state.value}
+            editarEntidad={this.editarEntidad}
+            operador={this.state.operador}/>
+
+          { this.state.mostrarModal && <Modal 
+            objeto={this.state.objeto}
+            headerModalText={this.state.headerModalText}
+            crearEntidad={this.crearEditarEnt}
+            operador={operador}
+            cambiarModal={this.cambiarModal}
+            manejarInput={this.manejarInput}/> }
+                  
+         </div>
+
       </div>
     )
   }

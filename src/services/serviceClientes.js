@@ -1,9 +1,16 @@
 const API_ULR = 'http://localhost:9090/api/clientes'
+let token = localStorage.getItem('token')
 
 export const getClientes = async () => {
   try {
-    const resp = await fetch(`${API_ULR}`)
-    const datos = resp.json()
+    const resp = await fetch(`${API_ULR}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: token,
+      }
+    })
+    const datos = await resp.json()
+    console.log(datos);
     return datos
   } catch (err) {
     console.log(`err`, err);
@@ -22,24 +29,34 @@ export const putCliente = async(id, cliente, method='POST') => {
     if (!url){
       throw new Error('No hay url')
     }
-    
     const resp = await fetch(url,{
       method,
       body: JSON.stringify(cliente),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        authorization: token,
       },
       mode: "cors"
     });
     const datos = await resp.json();
     return datos;
-
   } catch (err) {
     console.log(`err`);
   }
 } 
 
-/**
- * Nombre, Telefono, Discoteca,Correo,Sexo,Dia,
-    Mes, Año,ContactoActivo,EstadoReserva
- */
+export const deleteCliente = async(id) => {
+  console.log(`id`, id);
+  try {
+    const resp = await fetch(`${API_ULR}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        "Content-Type": "application/json",
+        authorization: token,},
+      mode: 'cors'
+    })
+    return resp
+  } catch (error) {
+    console.log(`error`, error);
+  }
+}

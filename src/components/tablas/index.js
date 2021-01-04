@@ -14,11 +14,9 @@ function Tabla({
   crearReserva=() => {},
   eliminarEntidad=()=>{}
 }) {
+  console.log(`value`, value);
   let hoy = new Date().getDate();
   let mes = (new Date().getMonth()+1);
-
-  //console.log('entidades:',entidades,'operador:', operador);
-  //console.log(`value`, value);
 
   switch (value) {
     case 'Masculino':
@@ -140,7 +138,7 @@ function Tabla({
       entidades = entidades.filter(entidad => entidad.Dia < (hoy+22) )
       break; 
     default:
-      entidades = entidades.filter(entidad => entidad.Nombre === 'Drako')
+      entidades = entidades.filter(entidad => entidad.Nombre === 'Nekomamushi')
       break;
   }  
   

@@ -1,6 +1,7 @@
 .container {
   display: flex;
-  margin: 2rem 0;
+  padding-bottom: 3rem;
+  margin: 2rem 0 0 0;
   width: 100%;
   overflow-y: auto;
   overflow-x: auto;

@@ -116,7 +116,9 @@ function Tabla({
       }
       break; 
     case 'Próximo Mes':
-      let meX = mes === 12? mes = 1: mes = mes + 1
+      let meX;
+      if (mes === 12) meX = 1
+      else {meX = mes + 1}
       entidades = entidades.filter(entidad => entidad.Mes === meX)
       break; 
     case 'Todos':

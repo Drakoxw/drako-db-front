@@ -7,6 +7,7 @@ import { getClientes, putCliente } from '../services/serviceClientes';
 
 
 let Rtoken ;
+const pagi = 'home';
 
 class Home extends Component {
   constructor(props) {
@@ -69,6 +70,7 @@ class Home extends Component {
     if (Rtoken.length < 20) {
       window.location.href="/" 
     }
+    localStorage.setItem('var','')
   }
 
   render() {
@@ -84,7 +86,7 @@ class Home extends Component {
           <BotonAction cambiarModal={this.cambiarModal} />
           <Tabla 
             entidades={entidades}
-            num={this.state.num}
+            num={this.state.num} pagi={pagi}
             value={this.state.value}
             editarEntidad={this.editarEntidad}
             operador={this.state.operador}/>

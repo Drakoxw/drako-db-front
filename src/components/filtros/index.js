@@ -1,9 +1,10 @@
 import React from 'react';
 import './Filtro.css';
 
-function Filtro({ value , num,
+function Filtro({ value = '', num,
   valueAdmin=()=>{},
   valueNum=()=>{} }) {
+    console.log(`value`, value);
   if (value === '' || value === 'Todos') {
     return (
       <div id="filtroComp">

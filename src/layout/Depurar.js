@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import Header from '../components/header';
 import Tabla from '../components/tablas/tablaDep';
 import { getClientes, putCliente, deleteCliente } from '../services/serviceClientes';
+import { getReservas } from '../services/serviceReservas' ;
 import Modal from '../components/modal';
 
 let Rtoken = 'xxx';
 let operador = localStorage.getItem('role');
+let pag = 'depur';
 
 class Depurar extends Component {
   constructor(props) {
@@ -13,7 +15,8 @@ class Depurar extends Component {
     this.state = {
       mostrarModal: false,
       objeto: {},
-      entidades: [],
+      clientes: [],
+      reservas: [],
       method: 'POST',
       headerModalText: 'Nuevo registro',
       value: '',
@@ -24,8 +27,13 @@ class Depurar extends Component {
  
   listar = async () => {
     const entidads = await getClientes()
-    this.setState({ entidades: entidads })
+    this.setState({ clientes: entidads })
   }
+  listarR = async() => {
+    const entidadR = await getReservas();
+    this.setState({ reservas: entidadR })
+  }
+
   cambiarModal =(_ev, method="POST", headerModalText="Nuevo registro") => {
     if (method === "POST") {
       this.setState({ objeto: {} })
@@ -79,6 +87,7 @@ class Depurar extends Component {
 
   componentDidMount() {
     this.listar()
+    this.listarR()
     Rtoken = localStorage.getItem('token') || 'xxx'
     if (Rtoken.length < 20) {
       window.location.href="/" 
@@ -87,7 +96,7 @@ class Depurar extends Component {
 
   render() {
     const {titulo} = this.props;
-    const {entidades} = this.state;
+    const { clientes, reservas } = this.state;
     return (
       <div>
         <Header 
@@ -95,6 +104,7 @@ class Depurar extends Component {
           valueAdmin={this.manejarValue}
           valueNum={this.manejarNum}
           value={this.state.value}
+          pagi={pag}
         />
 
         <div className="conten4">
@@ -102,8 +112,10 @@ class Depurar extends Component {
             value={this.state.value}
             num={this.state.num}
             operador={operador} 
-            entidades={entidades}
+            clientes={clientes}
+            reservas={reservas}
             editarEntidad={this.editarEntidad}
+            cambiar={this.cambiar}
             eliminarEntidad={this.eliminarEntidad}
           />
   

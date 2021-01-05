@@ -5,7 +5,7 @@ import './Tabla.css';
 
 
 
-function Tabla({
+function Tabla({ pagi,
   num = '',
   operador,
   value = '',
@@ -149,7 +149,7 @@ if (entidades.length > 0) {
   return (
     <div id="contenedor" className="container">
       <table className="table table-striped table-dark">
-        <Encabezado operador={operador}/>
+        <Encabezado operador={operador} pagi={pagi} />
         <tbody id="clientes-tabla">
         {entidades.map((clientes, index) => (
           <Fila 

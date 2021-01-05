@@ -11,12 +11,12 @@ function FilaD({ index,cliente,
     return (
       <tr id="tr">
         <th id="datos" scope="row">{index+1}</th>
-        <th key={`Nombre>${index+1}`}>{cliente.NombreContacto}</th>
+        <th key={`Nombre>${index+1}`}>{cliente.Contacto}</th>
         <th key={`Telefono>${index+1}`}>{cliente.Telefono}</th>
         <th key={`Fecha>${index+1}`}>{cliente.FechaReserva}</th>
         <th key={`Discoteca>${index+1}`}>{cliente.Discoteca}</th>
-        <th key={`Estado>${index+1}`}>{cliente.EstadoReserva}</th>
-        <th key={`Motivo>${index+1}`}>{cliente.MotivoReserva}</th>
+        <th key={`Estado>${index+1}`}>{cliente.EstReserva}</th>
+        <th key={`Motivo>${index+1}`}>{cliente.MotReserva}</th>
         <th key={`Opciones>${index+1}`}>
         <div className="btn-group" aria-label="Basic Example">
           <Boton tipo="editar" onClick={editarEntidad} id={cliente._id} />

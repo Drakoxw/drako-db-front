@@ -9,6 +9,7 @@ import BotonAction from '../components/botones/botonAction';
 
 let Rtoken = 'xxx';
 let operador = localStorage.getItem('role')
+let pagi = 'clien';
 
 class Clientes extends Component {
   constructor(props) {
@@ -82,6 +83,7 @@ class Clientes extends Component {
     if (Rtoken.length < 20) {
       window.location.href="/" 
     }
+    localStorage.setItem('var','')
   }
 
   render() {
@@ -91,7 +93,7 @@ class Clientes extends Component {
       <div>
         <Header 
           operador={operador} titulo={titulo}
-          num={this.state.num}
+          num={this.state.num} pagi={pagi}
           valueAdmin={this.manejarValue}
           valueNum={this.manejarNum}
           value={this.state.value}
@@ -104,7 +106,7 @@ class Clientes extends Component {
           <Tabla 
             value={this.state.value}
             num={this.state.num}
-            operador={operador} 
+            operador={operador} pagi={pagi}
             crearReserva={this.crearReserva}
             entidades={entidades}
             editarEntidad={this.editarEntidad}

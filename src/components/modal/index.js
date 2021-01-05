@@ -9,6 +9,7 @@ function Modal({
   crearEntidad=() => {},
   manejarInput = () => {},
   objeto = {},
+  pagi,
   operador = '',
   headerModalText = '',
   }) {
@@ -60,7 +61,7 @@ function Modal({
       </div>  
       )
     } 
-    if (operador === 'promAd') {
+    if (pagi === 'reserv') {
       return (
         <div className="modal fade" id="exampleModal"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">

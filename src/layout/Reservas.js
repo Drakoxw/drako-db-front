@@ -5,8 +5,9 @@ import Modal from '../components/modal';
 import { getReservas, putReservas, deleteReservas } from '../services/serviceReservas';
 
 let Rtoken = 'xxx';
-let operad = localStorage.getItem('role')
-let operador = `${operad}Ad`
+let operad = localStorage.getItem('role');
+let operador = `${operad}Ad`;
+let pag = 'reserv';
 
 class Reservas extends Component {
   constructor(props) {
@@ -57,6 +58,16 @@ class Reservas extends Component {
     console.log(objeto);
     this.setState({ objeto })
   }
+  manejarValue = (ev, _num) => {
+    let { target: {value} } = ev;
+    const num = parseInt(_num);
+    this.setState({ value, num })
+  }
+  manejarNum = (_num) => {
+    const num = parseInt(_num);
+    this.setState({ num })
+  }
+
 
   componentDidMount() {
     this.listar()
@@ -64,24 +75,35 @@ class Reservas extends Component {
     if (Rtoken.length < 20) {
       window.location.href="/" 
     }
+    localStorage.setItem('var','')
   }
 
   render() {
     const {titulo} = this.props;
-
+    console.log(this.state.reservas);
+    console.log(`operador`, operador);
     return (
       <div>
-        <Header operador={operador} titulo={titulo}/>
+        <Header 
+          operador={operador} 
+          num={this.state.num}
+          valueAdmin={this.manejarValue}
+          valueNum={this.manejarNum}
+          value={this.state.value}
+          titulo={titulo} pagi={pag}
+        />
+        
         <div className="conten4">
 
           <Tabla operador={operador} 
             entidades={this.state.reservas}
+            value={this.state.value} pagi={pag}
             eliminarEntidad={this.elimReserva}
             editarEntidad={this.modelarReserva}
           />
         
           { this.state.mostrarModal && <Modal 
-            objeto={this.state.objeto}
+            objeto={this.state.objeto} pagi={pag}
             crearEntidad={this.editarReser}
             headerModalText={this.state.headerModalText}
             cambiarModal={this.cambiarModal}

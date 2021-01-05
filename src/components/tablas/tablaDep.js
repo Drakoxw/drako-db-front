@@ -9,27 +9,58 @@ function TablaD({
   num,
   operador,
   value,
-  entidades= [],
+  clientes= [],
+  reservas= [],
+  cambiar=()=>{},
   editarEntidad=() => {},
-  cambiarEntidad=() => {},
   eliminarEntidad=()=>{}
 }) {
   let hoy = new Date().getDate();
   let mes = (new Date().getMonth()+1);
+  let entidades = []
 
+  if(value === 'Reservas') {
+    localStorage.setItem('var',value)
+  }
+  if(value === 'Clientes') {
+    localStorage.setItem('var',value)
+  }
+
+  let cabioxs = localStorage.getItem('var')
+
+  if (cabioxs === 'Reservas') {
+    entidades = reservas
+  } else {
+    entidades = clientes
+  }
+  
+  console.log(entidades);
 
   switch (value) {
-    case 'Reservas':
-      cambiarEntidad('reservas')
-      entidades = entidades.filter(entidad => !entidad.id )
-      break;
-    case 'Clientes':
-      cambiarEntidad('clientes')
-      entidades = new Array();
-      break;
     case 'Todas Reservas':
-      entidades = entidades.filter(entidad => !entidad.Sexo)
-      break;    
+      entidades = entidades.filter(entidad => entidad.Contacto)
+      break;  
+      case 'Reser. Pendientes':
+        entidades = entidades.filter(entidad => entidad.EstReserva === 'Por confirmar')
+        break;  
+      case 'Reser. No usadas':
+        entidades = entidades.filter(entidad => entidad.EstReserva === 'No usado')
+        break; 
+      case 'Reser. Rechazadas':
+        entidades = entidades.filter(entidad => entidad.EstReserva === 'Cancelada')
+        break; 
+      case 'Reser. Aceptadas':
+        entidades = entidades.filter(entidad => entidad.EstReserva === 'Confirmada')
+        break; 
+      case 'Básica':
+        entidades = entidades.filter(entidad => entidad.TipoReserva === 'Básica')
+        break; 
+      case 'VIP':
+        entidades = entidades.filter(entidad => entidad.TipoReserva === 'VIP')
+        break; 
+        ///777777777777777777777777777777777777777777777777777777 
+      
+      
     case 'Masculino':
       entidades = entidades.filter(entidad => entidad.Sexo === 'Masculino')
       break;
@@ -51,8 +82,8 @@ function TablaD({
     case 'Otro':
       entidades = entidades.filter(entidad => entidad.Sexo === 'Otro')
       break; //
-    case 'En Uso':
-      entidades = entidades.filter(entidad => entidad.ContactoActivo === 'En Uso')
+    case 'En uso':
+      entidades = entidades.filter(entidad => entidad.ContactoActivo === 'En uso')
       break; 
     case 'Solo llamadas':
       entidades = entidades.filter(entidad => entidad.ContactoActivo === 'Solo llamadas')
@@ -70,24 +101,6 @@ function TablaD({
       entidades = entidades.filter(entidad => entidad.ContactoActivo === 'No funciona')
       break; ////
       ////////////////////////////7
-      case 'Reser. Pendientes':
-        entidades = entidades.filter(entidad => entidad.EstadoReserva === 'Por confirmar')
-        break;  
-      case 'Reser. No usadas':
-        entidades = entidades.filter(entidad => entidad.EstadoReserva === 'No usado')
-        break; 
-      case 'Reser. Rechazadas':
-        entidades = entidades.filter(entidad => entidad.EstadoReserva === 'Cancelada')
-        break; 
-      case 'Reser. Aceptadas':
-        entidades = entidades.filter(entidad => entidad.EstadoReserva === 'Aceptada')
-        break; 
-      case 'Básica':
-        entidades = entidades.filter(entidad => entidad.TipoReserva === 'Básica')
-        break; 
-      case 'VIP':
-        entidades = entidades.filter(entidad => entidad.TipoReserva === 'VIP')
-        break; ////
       ///////////////////////////7
     case 'Este Mes':
       entidades = entidades.filter(entidad => entidad.Mes === mes)
@@ -197,7 +210,7 @@ if (entidades.length) {
     <div id="contenedor" className="container">
       <table className="table table-striped table-dark">
 
-        <Encabezado value={value} operador={operador}/>
+        <Encabezado value={value} operador={operador}  />
 
         <tbody id="clientes-tabla">
         {entidades.map((clientes, index) => (

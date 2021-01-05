@@ -5,6 +5,7 @@ import './Tabla.css';
 
 
 function Tabla2({
+  pagi,
   operador,
   entidades= [],
   editarEntidad=() => {},
@@ -14,7 +15,7 @@ if (entidades.length > 0) {
   return (
   <div id="contenedor" className="container">
     <table className="table table-striped table-dark">
-      <Encabezado operador={operador}/>
+      <Encabezado operador={operador} pagi={pagi} />
         <Fila 
         editarEntidad={editarEntidad}
         clientes={entidades} />

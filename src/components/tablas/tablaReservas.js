@@ -17,7 +17,7 @@ function TablaR({ value, pagi,
   switch (value) {
 
     case 'Todas Reservas':
-      entidades = entidades.filter(entidad => entidad.Contacto )  
+      entidades = entidades.filter(entidad => entidad.Año )  
       break;
     case 'Reser. Aceptadas':
       entidades = entidades.filter(entidad => entidad.EstReserva === 'Aceptada' )  

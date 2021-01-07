@@ -19,8 +19,8 @@ function FilaD({ index,cliente,
         <th key={`Motivo>${index+1}`}>{cliente.MotReserva}</th>
         <th key={`Opciones>${index+1}`}>
         <div className="btn-group" aria-label="Basic Example">
-          <Boton tipo="editar" onClick={editarEntidad} id={cliente._id} />
-          <Boton tipo="eliminar" onClick={eliminarEntidad} id={cliente._id} persona={cliente.Nombre}/>
+          <Boton tipo="editar" onClick={editarEntidad} id={cliente._id} objeto={cliente}/>
+          <Boton tipo="eliminar" onClick={eliminarEntidad} id={cliente._id} persona={cliente.Contacto}/>
         </div>
         </th>
       </tr>
@@ -37,7 +37,16 @@ function FilaD({ index,cliente,
         <th key={`${key[6]}=>${index+1}`}>{cliente.ContactoActivo}</th>
         <th key={`${key[8]}=>${index+1}`}>
         <div className="btn-group" aria-label="Basic Example">
-          <Boton tipo="editar" onClick={editarEntidad} id={cliente._id} />
+          <Boton tipo="editar" onClick={editarEntidad} id={cliente._id} objeto={{
+            Nombre: cliente.Nombre,
+            Telefono:cliente.Telefono,
+            Dia: cliente.Dia,
+            Mes: cliente.Mes,
+            Año: cliente.Año,
+            Sexo: cliente.Sexo,
+            Discoteca: cliente.Discoteca,
+            ContactoActivo: cliente.ContactoActivo
+          }}/>
           <Boton tipo="eliminar" onClick={eliminarEntidad} id={cliente._id} persona={cliente.Nombre}/>
         </div>
         </th>

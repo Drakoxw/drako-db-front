@@ -12,7 +12,6 @@ function Header({titulo, operador, pagi,
   valueAdmin=()=>{},
   valueNum=()=>{}
 }) {
-  console.log(operador, pagi);
   return (
     <header>
       <div className="nav-body" >

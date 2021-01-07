@@ -4,7 +4,6 @@ import './Filtro.css';
 function Filtro({ value = '', num,
   valueAdmin=()=>{},
   valueNum=()=>{} }) {
-    console.log(`value`, value);
   if (value === '' || value === 'Todos') {
     return (
       <div id="filtroComp">

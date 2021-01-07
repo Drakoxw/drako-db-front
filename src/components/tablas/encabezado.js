@@ -6,7 +6,6 @@ function Encabezado({ operador, value, pagi}) {
   
   let cambio = localStorage.getItem('var') 
 
-  console.log(`cambio`, cambio);
 
   if (pagi === 'home' ) {
     return (

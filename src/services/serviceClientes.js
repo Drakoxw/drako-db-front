@@ -27,6 +27,7 @@ export const putCliente = async(id, cliente, method='POST') => {
     if (!url){
       throw new Error('No hay url')
     }
+    console.log(`cliente`, cliente);
     const resp = await fetch(url,{
       method,
       body: JSON.stringify(cliente),
@@ -44,7 +45,6 @@ export const putCliente = async(id, cliente, method='POST') => {
 } 
 
 export const deleteCliente = async(id) => {
-  console.log(`id`, id);
   try {
     const resp = await fetch(`${API_ULR}/${id}`, {
       method: 'DELETE',

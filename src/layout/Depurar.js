@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Header from '../components/header';
 import Tabla from '../components/tablas/tablaDep';
 import { getClientes, putCliente, deleteCliente } from '../services/serviceClientes';
-import { getReservas } from '../services/serviceReservas' ;
+import { getReservas, deleteReservas, putReservas } from '../services/serviceReservas' ;
 import Modal from '../components/modal';
 
 let Rtoken = 'xxx';
@@ -40,27 +40,33 @@ class Depurar extends Component {
     }
     this.setState({ mostrarModal: !this.state.mostrarModal, method, headerModalText  })
   }
-  editarEntidad = async(_ev, id) => {
-    let objetox;
-    let objeto = { ...this.state.entidades };
-    for (let el in objeto){
-      if(objeto[el]._id === id) {objetox = objeto[el]}  
-    }
-    objeto= objetox
-    this.setState({ objeto, idObjeto: id }, ()=> {
+  editarEntidad = async(_objet, id) => {
+    //let objeto = { ...this.state.entidades }
+    this.setState({ objeto: _objet, idObjeto: id }, ()=> {
       this.cambiarModal(null, 'PUT', 'Editar cliente')
     })
   };
   crearEditarEnt = async() => {
     let { objeto, idObjeto, method } = this.state
-    putCliente(idObjeto, objeto, method)
-    this.cambiarModal()
-    this.listar()
+    if (objeto.Nombre) {
+      putCliente(idObjeto, objeto, method)
+      this.listar()
+      this.cambiarModal()
+    } else {
+      putReservas(idObjeto, objeto, method)
+      console.log(`put a reserva`);
+      this.listarR()
+      this.cambiarModal()
+    } 
   }
+
   eliminarEntidad = async(_ev, id, persona ) => {
     const ok = await prompt(`Desea eliminar a ${persona} ? \n Escriba "Y" para confirmar`)
     if (ok && ok.toLowerCase() === 'y') {
+      deleteReservas(id).then((x) => this.listar())
       deleteCliente(id).then((x) => this.listar())
+      this.listar()
+      this.listarR()
     } else {
       console.log('proceso interumpido');
     }
@@ -70,7 +76,6 @@ class Depurar extends Component {
     const { target: {value, name} } = ev;
     let {objeto} = this.state;
     objeto = { ...objeto, [name]: value }
-    console.log(objeto);
     this.setState({ objeto })
   }
   manejarValue = (ev, _num) => {
@@ -96,7 +101,7 @@ class Depurar extends Component {
 
   render() {
     const {titulo} = this.props;
-    const { clientes, reservas } = this.state;
+    const { clientes, reservas, objeto } = this.state;
     return (
       <div>
         <Header 
@@ -120,7 +125,7 @@ class Depurar extends Component {
           />
   
           { this.state.mostrarModal && <Modal 
-            objeto={this.state.objeto}
+            objeto={objeto}
             headerModalText={this.state.headerModalText}
             crearEntidad={this.crearEditarEnt}
             operador={operador}

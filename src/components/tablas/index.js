@@ -14,7 +14,6 @@ function Tabla({ pagi,
   crearReserva=() => {},
   eliminarEntidad=()=>{}
 }) {
-  console.log(`value`, value);
   let hoy = new Date().getDate();
   let mes = (new Date().getMonth()+1);
 

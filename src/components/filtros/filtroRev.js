@@ -4,7 +4,6 @@ import './Filtro.css';
 function Filtro3({ value='',pagi,
   valueAdmin=()=>{},
   valueNum=()=>{} }) {
-    console.log(`value`, value);
   if (!value || value === '' || value === 'Todas Reservas') {
     return (
       <div id="filtroComp">

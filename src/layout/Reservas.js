@@ -55,7 +55,6 @@ class Reservas extends Component {
     const { target: {value, name} } = ev;
     let {objeto} = this.state;
     objeto = { ...objeto, [name]: value }
-    console.log(objeto);
     this.setState({ objeto })
   }
   manejarValue = (ev, _num) => {
@@ -80,8 +79,8 @@ class Reservas extends Component {
 
   render() {
     const {titulo} = this.props;
-    console.log(this.state.reservas);
-    console.log(`operador`, operador);
+    console.log(this.state.reservas)
+
     return (
       <div>
         <Header 

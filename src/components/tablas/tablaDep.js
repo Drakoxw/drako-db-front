@@ -34,7 +34,6 @@ function TablaD({
     entidades = clientes
   }
   
-  console.log(entidades);
 
   switch (value) {
     case 'Todas Reservas':
@@ -57,6 +56,18 @@ function TablaD({
         break; 
       case 'VIP':
         entidades = entidades.filter(entidad => entidad.TipoReserva === 'VIP')
+        break;  
+      case 'Aceptadas':
+        entidades = entidades.filter(entidad => entidad.EstadoReserva === 'Aceptada')
+        break;   
+      case 'Pendientes':
+        entidades = entidades.filter(entidad => entidad.EstadoReserva === 'Pendiente')
+        break;   
+      case 'Rechazadas':
+        entidades = entidades.filter(entidad => entidad.EstadoReserva === 'Rechazada')
+        break;   
+      case 'No Usado':
+        entidades = entidades.filter(entidad => entidad.EstadoReserva === 'No usado')
         break; 
         ///777777777777777777777777777777777777777777777777777777 
       
@@ -217,8 +228,6 @@ if (entidades.length) {
           <Fila 
             cliente={clientes} 
             index={index} 
-            id={clientes.id} 
-            persona={clientes.Nombre} 
             editarEntidad={editarEntidad}
             eliminarEntidad={eliminarEntidad}/>
         ))}

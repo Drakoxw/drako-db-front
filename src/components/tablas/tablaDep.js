@@ -5,14 +5,12 @@ import './Tabla.css';
 import Downloader from '../botones/botonDownl'
 
 
-
 function TablaD({
   num,
   operador,
   value,
   clientes= [],
   reservas= [],
-  cambiar=()=>{},
   editarEntidad=() => {},
   eliminarEntidad=()=>{}
 }) {
@@ -41,16 +39,19 @@ function TablaD({
       entidades = entidades.filter(entidad => entidad.Contacto)
       break;  
       case 'Reser. Pendientes':
-        entidades = entidades.filter(entidad => entidad.EstReserva === 'Por confirmar')
+        entidades = entidades.filter(entidad => entidad.EstReserva === 'Por confirmar' || 
+        entidad.EstReserva === 'Pendiente')
         break;  
       case 'Reser. No usadas':
         entidades = entidades.filter(entidad => entidad.EstReserva === 'No usado')
         break; 
       case 'Reser. Rechazadas':
-        entidades = entidades.filter(entidad => entidad.EstReserva === 'Cancelada')
+        entidades = entidades.filter(entidad => entidad.EstReserva === 'Cancelada' || 
+        entidad.EstReserva === 'Rechazada')
         break; 
       case 'Reser. Aceptadas':
-        entidades = entidades.filter(entidad => entidad.EstReserva === 'Confirmada')
+        entidades = entidades.filter(entidad => entidad.EstReserva === 'Confirmada' || 
+        entidad.EstReserva === 'Aceptada')
         break; 
       case 'Básica':
         entidades = entidades.filter(entidad => entidad.TipoReserva === 'Básica')

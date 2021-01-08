@@ -42,7 +42,6 @@ class Depurar extends Component {
     this.setState({ mostrarModal: !this.state.mostrarModal, method, headerModalText  })
   }
   editarEntidad = async(_objet, id) => {
-    //let objeto = { ...this.state.entidades }
     this.setState({ objeto: _objet, idObjeto: id }, ()=> {
       this.cambiarModal(null, 'PUT', 'Editar cliente')
     })
@@ -55,7 +54,6 @@ class Depurar extends Component {
       this.cambiarModal()
     } else {
       putReservas(idObjeto, objeto, method)
-      console.log(`put a reserva`);
       this.listarR()
       this.cambiarModal()
     } 
@@ -87,7 +85,6 @@ class Depurar extends Component {
   manejarNum = (_num) => {
     const num = parseInt(_num);
     this.setState({ num })
-    console.log(num);
   }
 
 

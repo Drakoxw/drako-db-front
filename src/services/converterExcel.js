@@ -1,6 +1,6 @@
 import XLSX from 'xlsx';
 import * as Filesaver from 'file-saver';
-//import { saveAs } from '../services/filesaver'
+
 
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
@@ -17,7 +17,6 @@ export function jsonToExcel(data){
   };
   const excelBoofer = XLSX.write(workbook,{bookType: 'xlsx', type: 'array'});
   saveAsEx(excelBoofer, 'file_'+date+'_data_json')
-
 }
 function saveAsEx(buf, filename){
   const data = new Blob([buf], {type: EXCEL_TYPE});

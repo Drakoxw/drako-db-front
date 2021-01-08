@@ -21,16 +21,16 @@ function TablaR({ value, pagi,
       entidades = entidades.filter(entidad => entidad.Año )  
       break;
     case 'Reser. Aceptadas':
-      entidades = entidades.filter(entidad => entidad.EstReserva === 'Aceptada' )  
+      entidades = entidades.filter(entidad => entidad.EstReserva === 'Aceptada' ||  entidad.EstReserva === 'Confirmada' )  
       break;
     case 'Reser. Pendientes':
-      entidades = entidades.filter(entidad => entidad.EstReserva === 'Pendiente' )  
+      entidades = entidades.filter(entidad => entidad.EstReserva === 'Pendiente' ||  entidad.EstReserva === 'Por confirmar' )  
       break;
     case 'Reser. Rechazadas':
-      entidades = entidades.filter(entidad => entidad.EstReserva === 'Rechazada' )  
+      entidades = entidades.filter(entidad => entidad.EstReserva === 'Rechazada' ||  entidad.EstReserva === 'Cancelada' )  
       break;
     case 'Reser. No usadas':
-      entidades = entidades.filter(entidad => entidad.EstReserva === 'No usado' )  
+      entidades = entidades.filter(entidad => entidad.EstReserva === 'No usado' ||  entidad.EstReserva === '')  
       break;
     case 'Básica':
       entidades = entidades.filter(entidad => entidad.TipoReserva === 'Básica' )  

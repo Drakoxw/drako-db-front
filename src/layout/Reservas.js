@@ -79,13 +79,12 @@ class Reservas extends Component {
 
   render() {
     const {titulo} = this.props;
-    console.log(this.state.reservas)
-
+    const { reservas } = this.state
     return (
       <div>
         <Header 
           operador={operador} 
-          num={this.state.num}
+          num={this.state.num} data={reservas}
           valueAdmin={this.manejarValue}
           valueNum={this.manejarNum}
           value={this.state.value}

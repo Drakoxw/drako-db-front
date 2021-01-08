@@ -9,11 +9,13 @@ import { getClientes, putCliente } from '../services/serviceClientes';
 let Rtoken ;
 const pagi = 'home';
 
+
 class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
       mostrarModal: false,
+      z: true,
       objeto : {},
       entidades: [],
       operador: 'min',
@@ -76,10 +78,12 @@ class Home extends Component {
   render() {
     const { titulo } = this.props;
     const operador = (this.state.operador);
-    const { entidades } = this.state;
+    const { entidades,z } = this.state;
     return (
       <div>
-        <Header operador={operador} titulo={titulo} />
+        <Header operador={operador} z={z}
+          titulo={titulo} data={entidades}
+        />
 
         <div className="conten4">
 

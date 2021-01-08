@@ -13,10 +13,62 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/dragon512.png"  />
  
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-      <title>TEST DR</title>
+      <title>DR-db</title>
   </head>
   <body>
+
+
+
+
+
     <div id="root"></div>
     <script src="./script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js" integrity="sha512-wBcFatf7yQavHQWtf4ZEjvtVz4XkYISO96hzvejfh18tn3OrJ3sPBppH0B6q/1SHB4OKHaNNUKqOmsiTGlOM/g==" crossorigin="anonymous"></script>
+
+    <script src="./filesaver.js"></script>
+
+
+  <script type="text/javascript">
+    const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    const EXCEL_EXTENSION = '.xlsx';
+    let date = new Date().getTime()
+
+    //<button type="button" onclick="Down()" id="btn" >descargar</button>
+    //
+    const data = [
+{id: "f5effb9b-a26b-4594-80e7-bb730c575875", Nombre: "Drako", Correo: "uribeparacoFull@gmail.com"},
+{id: "a77abc39-a14f-4b27-9e42-4cc03b6f8c6d", Nombre: "Maria Correa", Correo: "maria@gmail.com"},
+{id: "b2e6d852-5865-45ed-ac47-b520525a4d7f", Nombre: "Daniel Lopez", Correo: "danloppexd@gmail.com"},
+{id: "82714ab9-ffa9-46b3-aae1-480df160fdb5", Nombre: "Juana Arco", Correo: "dearco@gmail.com"},
+{id: "218b890a-7b77-4e5e-aca3-71b25e5d9d55", Nombre: "Danna Quintero", Correo: "dannacard@gmail.com"},
+{id: "449306f7-b479-422c-bb60-3dbd3e6401a0", Nombre: "Javier Eden", Correo: "jed@gmail.com"},
+{id: "acff0a92-89e498613597ea1", Nombre: "pepe", Correo: "pepe@"},
+{id: "17627a6a-77da-4fb5-9fa3-732e81810783", Nombre: "Juana Mendez", Correo: "mentemente@gmail.com"}]
+
+    
+function Down() {
+  const worksheet = XLSX.utils.json_to_sheet(data);
+  const workbook = {
+    Sheets: {
+      'data': worksheet
+    },
+    SheetNames: ['data']
+  };
+  const excelBoofer = XLSX.write(workbook,{bookType: 'xlsx', type: 'array'});
+  saveAsEx(excelBoofer, 'file_data')
+
+}
+
+function saveAsEx(buf, filename){
+  const data = new Blob([buf], {type: EXCEL_TYPE});
+  saveAs(data, filename+EXCEL_EXTENSION)
+}
+
+
+</script>
+
+
+
   </body>
 </html>

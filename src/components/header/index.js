@@ -1,14 +1,15 @@
 import React from 'react';
 import { cerrar } from '../../services/serviceUser';
 import '../nav/nav.css';
-import dragon from './dragon_nav.png'
-import Filtro from '../filtros'
-import Filtro2 from '../filtros/filtros2'
-import Filtro3 from '../filtros/filtroRev'
+import dragon from './dragon_nav.png';
+import Filtro from '../filtros';
+import Filtro2 from '../filtros/filtros2';
+import Filtro3 from '../filtros/filtroRev';
+
 
 
 function Header({titulo, operador, pagi,
-  value , num,
+  value , num, 
   valueAdmin=()=>{},
   valueNum=()=>{}
 }) {
@@ -20,6 +21,7 @@ function Header({titulo, operador, pagi,
           </div>
           <div className="conten3">
             <h2>{titulo}</h2>
+
             <button className="btn-cerrar" type="submit" onClick={cerrar}>cerrar sesión</button>
 
             {((operador ===  'prom'|| operador==='admin') && pagi==='clien' )  && <Filtro value={value} num={num} valueAdmin={valueAdmin} valueNum={valueNum}/>}

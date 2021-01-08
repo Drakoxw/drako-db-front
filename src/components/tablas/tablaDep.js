@@ -2,6 +2,7 @@ import React from 'react';
 import Encabezado from './encabezado';
 import Fila from './filaDep';
 import './Tabla.css';
+import Downloader from '../botones/botonDownl'
 
 
 
@@ -211,7 +212,7 @@ function TablaD({
       entidades = entidades.filter(entidad => entidad.Dia < (hoy+22) )
       break; 
     default:
-      entidades = new Array();
+      entidades = entidades.filter(entidad => entidad.Nombre === 'Nekomamushi')
       break;
   }  
   
@@ -219,6 +220,9 @@ function TablaD({
 if (entidades.length) { 
   return (
     <div id="contenedor" className="container">
+
+      <Downloader data={entidades}/>
+
       <table className="table table-striped table-dark">
 
         <Encabezado value={value} operador={operador}  />

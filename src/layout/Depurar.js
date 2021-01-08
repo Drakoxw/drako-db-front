@@ -9,6 +9,7 @@ let Rtoken = 'xxx';
 let operador = localStorage.getItem('role');
 let pag = 'depur';
 
+
 class Depurar extends Component {
   constructor(props) {
     super(props)

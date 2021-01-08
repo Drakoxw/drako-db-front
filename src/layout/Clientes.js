@@ -7,6 +7,7 @@ import Modal from '../components/modal';
 import BotonAction from '../components/botones/botonAction';
 
 
+
 let Rtoken = 'xxx';
 let operador = localStorage.getItem('role')
 let pagi = 'clien';
@@ -63,7 +64,6 @@ class Clientes extends Component {
     const { target: {value, name} } = ev;
     let {objeto} = this.state;
     objeto = { ...objeto, [name]: value }
-    console.log(objeto);
     this.setState({ objeto })
   }
   manejarValue = (ev, _num) => {
@@ -96,7 +96,7 @@ class Clientes extends Component {
           num={this.state.num} pagi={pagi}
           valueAdmin={this.manejarValue}
           valueNum={this.manejarNum}
-          value={this.state.value}
+          value={this.state.value} data={entidades}
         />
         <div className="conten4">
           <BotonAction 

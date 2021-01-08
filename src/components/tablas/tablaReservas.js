@@ -2,6 +2,7 @@ import React from 'react';
 import Encabezado from './encabezado';
 import Fila from './filaReserv';
 import './Tabla.css';
+import Downloader from '../botones/botonDownl';
 
 
 function TablaR({ value, pagi,
@@ -59,6 +60,9 @@ function TablaR({ value, pagi,
 if (entidades.length > 0) { 
   return (
     <div id="contenedor" className="container">
+
+      <Downloader data={entidades}/>
+
       <table className="table table-striped table-dark">
         <Encabezado operador={operador} pagi={pagi}/>
         <tbody id="clientes-tabla">

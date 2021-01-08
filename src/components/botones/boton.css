@@ -27,3 +27,9 @@
   background-color: #007bff;
   border-color: #007bff;
 }
+.toexcel {
+  border-color: #007bff;
+  background-color: #02134b;
+  display: flex;
+  margin: 0 auto 1rem auto;
+}

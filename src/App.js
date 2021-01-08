@@ -6,7 +6,7 @@ import Nav from './components/nav';
 import Home from './layout/Home';
 import Clientes from './layout/Clientes';
 import Reservas from './layout/Reservas';
-import Depurar from './layout/Depurar'
+import Depurar from './layout/Depurar';
 
 function App() {
   return (

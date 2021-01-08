@@ -39,7 +39,7 @@
   min-width: 390px;
   position: absolute;
   right: 0px;
-  top: 0px;
+  /*top: 0px;*/
   flex-wrap: wrap;
   display: flex;
   list-style-type: none;

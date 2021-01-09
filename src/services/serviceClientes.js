@@ -1,4 +1,5 @@
-const API_ULR = 'http://localhost:9090/api/clientes'
+//const API_ULR = 'http://localhost:9090/api/clientes'
+const API_ULR = 'https://drako-db.herokuapp.com/api/clientes'
 let token = localStorage.getItem('token')
 
 export const getClientes = async () => {

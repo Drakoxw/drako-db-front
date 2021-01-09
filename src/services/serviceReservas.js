@@ -1,4 +1,5 @@
-const API_ULR = 'http://localhost:9090/api/reservas'
+//const API_ULR = 'http://localhost:9090/api/reservas'
+const API_ULR = 'https://drako-db.herokuapp.com/api/reservas'
 let token = localStorage.getItem('token')
 
 export const getReservas = async() => {

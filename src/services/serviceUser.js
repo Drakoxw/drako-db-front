@@ -1,7 +1,8 @@
-const API_ULR = 'http://localhost:9090/api'
+//const API_ULR = 'http://localhost:9090/api'
+const API_ULR = 'https://drako-db.herokuapp.com/api'
 
 
-export const login = async (user, pass) => {
+export const login = async(user, pass) => {
   try {
     const resp = await fetch(`${API_ULR}/login`, {
       method: 'POST',
@@ -13,7 +14,7 @@ export const login = async (user, pass) => {
       mode: "cors"
     })
     const token = await resp.json();
-    await localStorage.setItem('token', token.token)
+    localStorage.setItem('token', token.token)
     if (token.token) {
       const datUser = await fetch(`${API_ULR}/me`, {
         method: 'GET',
@@ -23,10 +24,10 @@ export const login = async (user, pass) => {
         },
       })
       const datoUser = await datUser.json();
-      await localStorage.setItem('user', datoUser.Email);
-      await localStorage.setItem('role', datoUser.Role);
+      localStorage.setItem('user', datoUser.Email);
+      localStorage.setItem('role', datoUser.Role);
     }
-    return 
+    return 'ok';
   } catch (err) {
     console.log(`error :`, err);
   }

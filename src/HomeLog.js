@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Login from './components/login';
 import { login } from './services/serviceUser'
-import Cookie from 'universal-cookie'
+//import Cookie from 'universal-cookie'
 
-const cook = new Cookie();
+//const cook = new Cookie();
 let Rtoken = 'xxx';
 
 
@@ -14,6 +14,9 @@ class Home extends Component {
       logindata: {},
       token: ''
     }
+  }
+  setear =()=> {
+    Rtoken = localStorage.setItem('token','xx2')
   }
 
   loguear = (ev) => {
@@ -29,8 +32,7 @@ class Home extends Component {
     if (data.name) {
       login(Email, Pass)
       .then((x) => {
-        cook.set('token', x.token);
-        console.log('respusta ok');
+        console.log('respusta ',x);
     })
     }
     this.setState({ token: localStorage.getItem('token') })
@@ -44,10 +46,12 @@ class Home extends Component {
   }
 
   componentDidMount () {
+    this.setear()
     Rtoken = localStorage.getItem('token') || 'xxx'
     if (Rtoken.length > 20) {
       window.location.href="/home" 
     }
+    //Rtoken = localStorage.getItem('token') || 'xx2'
   }
 
   render() {
